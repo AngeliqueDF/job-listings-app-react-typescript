@@ -1,23 +1,25 @@
 const FilterBar = ({ filters, removeFilter, clearFilters }) => {
-	// The component bar is only visible if there are filter terms
-	const styles = {
-		display: filters.length === 0 ? "none" : "flex",
+	const handleRemove = (event: React.MouseEvent<HTMLButtonElement>): void => {
+		const removeButton: HTMLButtonElement = event.currentTarget;
+		removeFilter(removeButton.value);
 	};
 
-	const handleRemove = (e) => {
-		console.log(e.target.value);
-		removeFilter(e.target.value);
+	const handleClear = (): void => {
+		clearFilters();
 	};
 
-	const handleClear = (e) => {
-		clearFilters(e.target.value);
-	};
 	return (
 		<>
-			<div className="filter-bar" style={styles}>
+			<div
+				className="filter-bar"
+				// The component bar will only be visible if there are filter terms
+				style={{
+					display: filters.length === 0 ? "none" : "flex",
+				}}
+			>
 				<ul className="filters-list">
 					{/* Displays the filters selected */}
-					{filters.map((f, index) => (
+					{filters.map((f: string, index: number) => (
 						<li key={f + index} className="filter">
 							<span className="filter-term">{f}</span>
 							<button onClick={handleRemove} value={f}></button>
