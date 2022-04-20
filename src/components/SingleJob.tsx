@@ -1,4 +1,4 @@
-import JobDescriptionTerm from "./JobDescriptionTerm";
+import JobDescriptionTerm from "./JobDescriptionTerm.tsx";
 
 const SingleJob = ({
 	job: {
@@ -20,7 +20,15 @@ const SingleJob = ({
 	/**
 	 * Displays "Featured" or "New!" if
 	 */
-	const TagListElement = ({ tag, content, customClass }) => {
+	const TagListElement = ({
+		tag,
+		content,
+		customClass,
+	}: {
+		tag: boolean;
+		content: string;
+		customClass: string;
+	}): JSX.Element => {
 		if (tag) {
 			return <li className={`tag ${customClass}`}>{content}</li>;
 		}
