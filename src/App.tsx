@@ -1,11 +1,27 @@
 import "./css/reset.css";
 import "./css/style.css";
 
-import FilterBar from "./components/FilterBar";
-import SingleJob from "./components/SingleJob";
+import FilterBar from "./components/FilterBar.tsx";
+import SingleJob from "./components/SingleJob.tsx";
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+
+export type Job = {
+	id: number;
+	company: string;
+	logo: string;
+	new: true;
+	featured: true;
+	position: string;
+	role: string;
+	level: string;
+	postedAt: string;
+	contract: string;
+	location: string;
+	languages: Array<string>;
+	tools: Array<string>;
+};
 
 const App = () => {
 	/**
@@ -15,7 +31,7 @@ const App = () => {
 
 	// Get the list of jobs from data.json
 	useEffect(() => {
-		axios("data.json")
+		axios("/data.json")
 			.then((response) => response.data)
 			.then((jobs) => {
 				console.log(jobs);
@@ -31,35 +47,41 @@ const App = () => {
 	 * Adds the clicked/tapped filter if it isn't already selected
 	 * @param {string} newFilter
 	 */
-	const handleAddFilter = (newFilter) => {
+	const handleAddFilter = (newFilter: string): void => {
 		const isInFilters = filters.find((f) => newFilter === f);
 		if (!isInFilters) {
 			setFilters([...filters, newFilter]);
 		}
 	};
-	const handleRemoveFilter = (removedFilter) => {
-		const newFilters = filters.filter((f) => f !== removedFilter);
+	const handleRemoveFilter = (filterToRemove: string): void => {
+		const newFilters = filters.filter((f) => f !== filterToRemove);
 		setFilters(newFilters);
 	};
-	const handleClearFilters = () => {
+	const handleClearFilters = (): void => {
 		setFilters([]);
 	};
 
 	/**
-	 * Filters jobs. Only those who match with all the current filters are included
-	 * @param {Array} filters
-	 * @returns the filtered jobs
+	 * Filters jobs. Retains jobs who match with all of the current filters.
 	 */
-	const filterJobs = (filters) => {
-		const filteredJobs = jobs.filter((j, index, array) => {
-			const filterTerms = [j.role, j.level, ...j.languages, ...j.tools];
-			return filters.every((elem) => filterTerms.includes(elem));
+	const filterJobs = (filters: Array<string>): Array<Job> => {
+		/**
+		 * Checks the current job has all of the current filters either as its role, level, languages, or tools.
+		 */
+		const matches = (jobFilterTerms: Array<string>): boolean =>
+			filters.every((filter) => jobFilterTerms.includes(filter));
+
+		const filteredJobs: Array<Job> = jobs.filter((job) => {
+			// Create an array with all of the job's terms
+			const filterTerms = [job.role, job.level, ...job.languages, ...job.tools];
+
+			return matches(filterTerms);
 		});
 
 		return filteredJobs;
 	};
 
-	let displayedJobs;
+	let displayedJobs: Array<Job>;
 	if (filters.length > 0) {
 		displayedJobs = filterJobs(filters);
 	} else {
