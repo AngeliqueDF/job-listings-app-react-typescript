@@ -71,7 +71,7 @@ const App = () => {
 		const matches = (jobFilterTerms: Array<string>): boolean =>
 			filters.every((filter) => jobFilterTerms.includes(filter));
 
-		const filteredJobs: Array<Job> = jobs.filter((job) => {
+		const filteredJobs: Array<Job> = jobs.filter((job: Job) => {
 			// Create an array with all of the job's terms
 			const filterTerms = [job.role, job.level, ...job.languages, ...job.tools];
 
