@@ -89,7 +89,7 @@ const App = () => {
 	}
 
 	return (
-		<main className={filters.length ? "filtered-jobs" : null}>
+		<main className={filters.length ? "filtered-jobs" : ""}>
 			<FilterBar
 				filters={filters}
 				removeFilter={handleRemoveFilter}
