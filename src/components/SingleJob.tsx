@@ -35,7 +35,7 @@ const SingleJob = ({
 	return (
 		<>
 			{" "}
-			<article className={isFeatured ? "featured-job" : null}>
+			<article className={isFeatured ? "featured-job" : ""}>
 				<header>
 					<img className="company-logo" src={logo} alt={`Logo of ${company}`} />
 					<div>
