@@ -29,9 +29,8 @@ const SingleJob = ({
 		content: string;
 		customClass: string;
 	}): JSX.Element => {
-		if (tag) {
-			return <li className={`tag ${customClass}`}>{content}</li>;
-		}
+		if(!tag) return <></>
+			return <li className={`tag ${customClass}`}>{content}</li>;	
 	};
 	return (
 		<>
