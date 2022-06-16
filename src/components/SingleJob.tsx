@@ -45,7 +45,7 @@ const SingleJob = ({
 						<div className="job-subtitle">
 							<p className="company-name">{company}</p>
 
-							{/* Conditionnally render the "NEW" and "Featured!" tag TagListElement is not rendered if its tag is === false */}
+							{/* Conditionnally render the "NEW" and "Featured!" tags */}
 							{isNew || isFeatured ? (
 								<ul>
 									<TagListElement
