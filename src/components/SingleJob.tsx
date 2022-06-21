@@ -36,7 +36,7 @@ const SingleJob = ({
 	return (
 		<>
 			{" "}
-			<article className={isFeatured ? "featured-job" : null}>
+			<article className={`listing ${isFeatured ? "featured-job" : ""}`}>
 				<header>
 					<img className="company-logo" src={logo} alt={`Logo of ${company}`} />
 					<div>
@@ -69,7 +69,7 @@ const SingleJob = ({
 					</div>
 				</header>
 
-				<ul className="description">
+				<ul className="keywords-list">
 					{[role, level, ...languages, ...tools].map((term) => (
 						<JobDescriptionTerm key={term} term={term} addFilter={addFilter} />
 					))}
