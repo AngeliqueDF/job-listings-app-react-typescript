@@ -1,4 +1,4 @@
-# Job listing app
+# Job listings, TypeScript app
 
 ![Screenshot of the job listings app on desktop.](./src/images/screenshot-job-listings-static-desktop.png)
 
@@ -37,6 +37,7 @@ _A lightweight app to display a list of jobs._
 - View a list of jobs.
 - Filter jobs by keyword.
 - Responsive.
+- Accessible.
 
 <p align="center">
   <img src="./src/images/screenshot-job-listings-static-mobile.png" width="33%" alt="Screenshot of the job listings app on mobile." >
