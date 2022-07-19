@@ -1,10 +1,12 @@
-# Job listing app
+# Job listings, TypeScript app
 
 ![Screenshot of the job listings app on desktop.](./src/images/screenshot-job-listings-static-desktop.png)
 
 <div align="center">
-  <img src="./logo-reactjs.svg">
-  <img src="./logo-redux.svg">
+  <img src="./public/src/images/logo-typescript.svg" width="40px">
+  <img src="./public/src/images/logo-html5.svg">
+  <img src="./public/src/images/logo-css3.svg">
+  <img src="./public/src/images/logo-reactjs.svg">
 </div>
 
 ## Overview
@@ -16,7 +18,7 @@ _A lightweight app to display a list of jobs._
 ## Links
 
 <p>
-<a href="https://github.com/AngeliqueDF/job-listings-app-react-typescript">GitHub repo</a> • <a href="/.github/CONTRIBUTING.md">Live demo</a></p>
+<a href="https://github.com/AngeliqueDF/job-listings-app-react-typescript">GitHub repo</a> • <a href="https://neon-palmier-6249e3.netlify.app/">Live demo</a></p>
 
 <br />
 
@@ -35,6 +37,7 @@ _A lightweight app to display a list of jobs._
 - View a list of jobs.
 - Filter jobs by keyword.
 - Responsive.
+- Accessible.
 
 <p align="center">
   <img src="./src/images/screenshot-job-listings-static-mobile.png" width="33%" alt="Screenshot of the job listings app on mobile." >
