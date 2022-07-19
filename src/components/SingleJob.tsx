@@ -32,6 +32,7 @@ const SingleJob = ({
 		if (tag) {
 			return <li className={`tag ${customClass}`}>{content}</li>;
 		}
+		return <></>;
 	};
 	return (
 		<>
