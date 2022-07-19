@@ -1,5 +1,5 @@
 import "./css/reset.css";
-import "./css/style.css";
+import "./css/style.scss";
 
 import FilterBar from "./components/FilterBar.tsx";
 import SingleJob from "./components/SingleJob.tsx";
