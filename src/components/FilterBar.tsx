@@ -22,7 +22,11 @@ const FilterBar = ({ filters, removeFilter, clearFilters }) => {
 					{filters.map((f: string, index: number) => (
 						<li key={f + index} className="filter">
 							<span className="filter-term">{f}</span>
-							<button onClick={handleRemove} value={f}></button>
+							<button
+								className="remove-filter"
+								onClick={handleRemove}
+								value={f}
+							></button>
 						</li>
 					))}
 				</ul>
